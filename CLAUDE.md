@@ -114,6 +114,20 @@ User feedback → Edit code directly → Bash render still (background) → Show
 Render fails → render-debugger (reads code + searches docs) → Fix applied → Bash render (retry)
 ```
 
+### Visual Reference & Brand Research
+
+When a composition references a specific website, brand, or product:
+
+```
+URL or brand mentioned
+  ├── Playwright: navigate to site, take screenshot(s)
+  ├── Extract: logos, color palette, typography, visual style
+  ├── Save relevant assets to public/ (logos, screenshots for reference)
+  └── Feed visual context into composition-designer
+```
+
+Use `mcp__playwright__browser_navigate` + `mcp__playwright__browser_take_screenshot` to capture the site. Use `mcp__playwright__browser_snapshot` to inspect specific elements (colors, fonts). This is far more reliable than guessing brand colors or styles from memory.
+
 ### Orchestration Rules
 
 1. **Research before code** — Dispatch `composition-designer` for non-trivial Remotion work.
@@ -123,6 +137,7 @@ Render fails → render-debugger (reads code + searches docs) → Fix applied �
 5. **Sequential registration** — Write the component file BEFORE adding its `<Composition>` to Root.tsx.
 6. **Still before full render** — Render a still at a key frame first. Full video only when the user is satisfied.
 7. **Package check** — Verify `package.json` before using optional `@remotion/*` packages.
+8. **Visual research via Playwright** — When a composition references a website or brand, use Playwright MCP to screenshot the site and extract visual identity (logos, colors, typography) before designing. Don't guess brand details from memory.
 
 ---
 
