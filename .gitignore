@@ -2,3 +2,13 @@ node_modules/
 dist/
 out/
 .DS_Store
+
+# User-generated content — keep the repo as a clean template
+public/fonts/
+public/avatars/
+public/media/
+public/videos/
+src/*
+!src/index.ts
+!src/Root.tsx
+!src/HelloWorld.tsx
